@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+  http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+
+  <module name="axelor-gst" package="com.axelor.gst.db"/>
+
+ <entity name="Company" cacheable="true">
+    <string name="name" required="true"/>
+    <many-to-one name="logo" ref="MetaFile"/>
+    <one-to-one ref="Contact" name="contact"/>
+    <string name="gstin"/>
+    <one-to-one ref="BankDetails" name="bank_details"/>
+    <many-to-one name="address" ref="Address"/>
+  </entity>
+ <entity name="Sequence" cacheable="true">
+    <string name="prefix" required="true"/>
+    <string name="suffix" />
+    <integer name="padding" min="1" max="10"/>
+    <string name="next_number" />
+    <many-to-one name="model" ref="MetaModel" required="true"/>
+    
+  </entity>
+
+
+</domain-models>
